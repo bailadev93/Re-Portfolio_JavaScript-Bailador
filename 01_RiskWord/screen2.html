@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk WORD</title>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"
+        integrity="sha512-6+YN/9o9BWrk6wSfGxQGpt3EUK6XeHi6yeHV+TYD2GR0Sj/cggRpXr1BrAQf0as6XslxomMUxXp2vIl+fv0QRA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <link rel="stylesheet" href="./src/css/screen2.css">
+    <link rel="stylesheet" href="./src/css/UI.css">
+
+    <link rel="stylesheet" href="./src/css/animations.css">
+
+</head>
+
+
+<body id="app">
+
+
+
+    <div id="app_container" class="container_app">
+
+        <!-- Footer Top -->
+        <div class="footer_top_content">
+
+            <div class="timer_content">
+                <div class="father_timer">
+
+                    <div class="time_counter_layout1"></div>
+                    <div id="bg_decrement" class="time_counter_layout2 "></div>
+
+                    <div class="counter_timer_content">
+
+                        <span class="timer_ico_clock">
+                            <i class="fa-solid fa-stopwatch pulse1"></i>
+                            <span id="timer_counter" class="timer_seconds fadeIn1">59</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stadistics -->
+            <div class="stadistics_container">
+
+                <!--PLAYER 1 -->
+                <div class="stadistics_card">
+                    <div class="stadistics_card_content" id="selected1">
+                        <span id="ico_player1"></span><br>
+                        <span id="info_player1" class="info_player"></span>
+                    </div>
+                </div>
+
+                <!-- PLAYER 2 -->
+                <div class="stadistics_card">
+                    <div class="stadistics_card_content" id="selected2">
+                        <span id="ico_player2"></span><br>
+                        <span id="info_player2" class="info_player"></span>
+                    </div>
+                </div>
+
+                <!-- SCORE -->
+                <div class="stadistics_card">
+                    <div class="stadistics_card_content">
+                        <i class="fa-solid fa-star"></i> <br>
+                        <span id="info_score" class="info_player">0</span>
+                    </div>
+                </div>
+
+                <!-- TRY -->
+                <div class="stadistics_card">
+                    <div class="stadistics_card_content">
+                        <i class="fa-solid fa-skull"></i> <br>
+                        <span id="info_try" class="info_player">0</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="content_app">
+
+            <!-- Letters -->
+            <div id="container_letters_box"></div>
+            <!--
+            <div class="number_letters_content" id="letter_content_items">
+
+                <div id="boxItems" class="box_letter">
+                    <div  class="box_content_letter">
+                        <span>-</span>
+                    </div>
+                </div>
+            </div>
+            -->
+
+
+            <!-- Form Data -->
+            <div class="form_data_container">
+                <div class="form_data_content">
+                    <div class="lives_container">
+                        <span>
+                            <i id="heart0" class="fa-solid fa-heart"></i>
+                            <i id="heart1" class="fa-solid fa-heart"></i>
+                            <i id="heart2" class="fa-solid fa-heart"></i>
+                            <i id="heart3" class="fa-solid fa-heart"></i>
+                            <i id="heart4" class="fa-solid fa-heart"></i>
+                        </span>
+                    </div>
+
+                    <!-- Info ALERT -->
+                    <div id="info_error" class="container_alert">
+                        <div class="alert_danger">
+                            <i style="color: rgba(241, 118, 118, 0.81);" class="fa-solid fa-circle-xmark"></i>
+                            <strong class="font__weight-semibold">Error!</strong>
+                            <span id="msj_alert_error"></span>
+                        </div>
+                    </div>
+
+                    <div class="input_container">
+                        <!-- Player 1-->
+                        <div class="input_content">
+                            <div class="input_data">
+                                <label for="player1" class="label_player"><span id="player_win"></span></label><br>
+                                <input type="text" id="risk_word" placeholder="Enter Word" onKeyUp="onTypingInput()"
+                                    autocomplete="off">
+
+                                <div class="btn_content">
+                                    <button type="button" id="btn_clicked1" class="btn_heads"
+                                        onclick="onSubmitAndRisk()">
+                                        Risk
+                                    </button>
+
+                                    <button type="button" id="btn_clicked2" class="btn_tails" onclick="onSubmitTry()">
+                                        Try
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="display: none;" id="word_entered"></div>
+
+                        <!--
+                        <div class="wordsEntered_container">
+                            <span id="word1" class="box_word_entered word_wrong">A</span>
+                            <span id="word1" class="box_word_entered right_word">B</span>
+                            <span id="word1" class="box_word_entered word_wrong">A</span>
+                            <span id="word1" class="box_word_entered right_word">B</span>
+                            <span id="word1" class="box_word_entered word_wrong">A</span>
+                            <span id="word1" class="box_word_entered right_word">B</span>
+                            <span id="word1" class="box_word_entered right_word">B</span>
+                            <span id="word1" class="box_word_entered right_word">B</span>
+                            <span id="word1" class="box_word_entered right_word">B</span>
+                            <span id="word1" class="box_word_entered right_word">B</span>
+                        </div>
+                        -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!--MODAL YOU ARE READY? -->
+
+        <div id="my_modal_you_are_ready" class="modal_container_are_you_ready mAreYouReady_container slideInDown">
+
+            <div class="modal_content mAreYouReady_content">
+
+                <div class="modal_are_you_ready_head_title">
+                    <h1 id="inner_title" class="modal_are_you_ready_head_h1">
+                        ARE YOU READY?
+                    </h1>
+                </div>
+
+
+                <div class="modal_are_you_ready_box">
+
+                    <div class="modal_are_you_ready_text_ad">
+                        Think and relax, you have 1 minute to complete the game and guess the word that your opponent
+                        put.
+                    </div>
+
+
+                </div>
+
+                <div class="btn_content_modal_are_you_ready">
+
+
+                    <button title="Retry" type="button" id="btn_clicked2" class="btn3 btn3_are_you_ready_game"
+                        onclick="onYouAreReady()">
+                        <i class="fa-brands fa-golang"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!--MODAL WIN -->
+        <div id="my_modal_win" class="modal_container mWin_container slideInDown">
+
+            <div class="modal_content mWin_content">
+
+                <div class="modal_win_head_title">
+                    <h1 id="inner_title" class="modal_win_head_h1">
+                        <i class="fa-solid fa-trophy"></i> YOU WON 
+                    </h1>
+                </div>
+
+                <div class="modal_win_text_congrats">
+                    Congratulations <b style="color:rgb(131, 255, 127)"><span id="you_wonp1"></span></b> you have won,
+                    you have hit all the
+                    phrase of your opponent
+                    <b style="color: rgb(131, 255, 127)"><span id="you_wonp2"></span></b>. This is your statistic.
+                </div>
+
+                <div class="modal_win_statics">
+
+                    <div class="modal_win_statics_box">
+                        <i class="fa-solid fa-stopwatch"></i> <span style="font-size:1.5em; color:#002402">Finished
+                            time: <b id="statics_time1">0</b></span>
+                    </div>
+
+                    <div class="modal_win_statics_box">
+                        <i class="fa-solid fa-star"></i> <span style="font-size:1.5em; color:#002402">Your score:
+                            <b id="statics_score1">0</b></span>
+                    </div>
+
+                    <div class="modal_win_statics_box">
+                        <i class="fa-solid fa-skull"></i> <span style="font-size:1.5em;color:#002402">Your tries:
+                            <b id="statics_tries1">0</b></span>
+                    </div>
+
+                </div>
+
+                <div class="btn_content_flex">
+                    <button title="Exit" type="button" id="btn_clicked1" class="btn2 btn2_exit_game"
+                        onclick="onExitGame()">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    </button>
+
+                    <button title="Retry" type="button" id="btn_clicked2" class="btn2 btn2_retry_game"
+                        onclick="onRetryGame()">
+                        <i class="fa-solid fa-rotate-right"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Modal Lose -->
+
+        <div id="my_modal_lose" class="modal_container mLose_container slideInDown">
+
+            <div class="modal_content mLose_content">
+
+                <div class="modal_lose_head_title">
+                    <h1 id="inner_title" class="modal_lose_head_h1">
+                        <i class="fa-solid fa-heart-crack"></i> YOU LOSE <i class="fa-solid fa-heart-crack"></i>
+                    </h1>
+                </div>
+
+                <div class="modal_lose_text_lose">
+                    Oh dude! you have lose, your opponent's phrase was <b id="phrase_oponent1"
+                        style="color: rgb(255, 136, 136);"></b> you try it anew?. This is your statistic.
+                </div>
+
+                <div class="modal_lose_statics">
+
+                    <div class="modal_lose_statics_box">
+                        <i class="fa-solid fa-stopwatch"></i> <span style="font-size:1.5em; color:#110000">Finished
+                            time: <b id="statics_time2">0</b></span>
+                    </div>
+
+                    <div class="modal_lose_statics_box">
+                        <i class="fa-solid fa-star"></i> <span style="font-size:1.5em; color:#110000">Your score:
+                            <b id="statics_score2">0</b></span>
+                    </div>
+
+                    <div class="modal_lose_statics_box">
+                        <i class="fa-solid fa-skull"></i> <span style="font-size:1.5em;color:#110000">Your tries:
+                            <b id="statics_tries2">0</b></span>
+                    </div>
+
+                </div>
+
+                <div class="btn_content_flex">
+                    <button title="Exit" type="button" id="btn_clicked1" class="btn2 btn2_exit_game"
+                        onclick="onExitGame()">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    </button>
+
+                    <button title="Retry" type="button" id="btn_clicked2" class="btn2 btn2_retry_game"
+                        onclick="onRetryGame()">
+                        <i class="fa-solid fa-rotate-right"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- TIME OVER-->
+        <div id="my_modal_timeOver" class="modal_container mLose_container slideInDown">
+
+            <div class="modal_content mLose_content">
+
+                <div class="modal_lose_head_title">
+                    <h1 id="inner_title" class="modal_lose_head_h1">
+                        <i class="fa-solid fa-bomb bounce1"></i> TIME OVER 
+                    </h1>
+                </div>
+
+                <div class="modal_lose_text_lose">
+                    Oh dude! you have lose, your opponent's phrase was <b id="phrase_oponent2"
+                        style="color: rgb(255, 136, 136);"></b>. You try it anew? YOU ARE some slow, your opponent you won. This is your statistic.
+                </div>
+
+
+                <div class="modal_lose_statics">
+
+                    <div class="modal_lose_statics_box">
+                        <i class="fa-solid fa-stopwatch"></i> <span style="font-size:1.5em; color:#001104">Finished
+                            time: <b id="statics_time3">0</b></span>
+                    </div>
+
+                    <div class="modal_lose_statics_box">
+                        <i class="fa-solid fa-star"></i> <span style="font-size:1.5em; color:#001104">Your score:
+                            <b id="statics_score3">0</b></span>
+                    </div>
+
+                    <div class="modal_lose_statics_box">
+                        <i class="fa-solid fa-skull"></i> <span style="font-size:1.5em;color:#001104">Your tries:
+                            <b id="statics_tries3">0</b></span>
+                    </div>
+
+                </div>
+
+                <div class="btn_content_flex">
+                    <button title="Exit" type="button" id="btn_clicked1" class="btn2 btn2_exit_game"
+                        onclick="onExitGame()">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    </button>
+
+                    <button title="Retry" type="button" id="btn_clicked2" class="btn2 btn2_retry_game"
+                        onclick="onRetryGame()">
+                        <i class="fa-solid fa-rotate-right"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+        <script src="./src/js/app.js"></script>
+        <script src="./src/js/index.js"></script>
+        <script src="./src/js/screen2.js"></script>
+
+
+</body>
+
+</html>

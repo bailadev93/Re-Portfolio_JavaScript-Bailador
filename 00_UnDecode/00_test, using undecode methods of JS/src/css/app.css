@@ -1,0 +1,275 @@
+
+@font-face {
+    font-family: EntezareZohoor2;
+   src: url("../fonts/NotoSansMono-VariableFont_wdth\,wght.ttf");
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgba(21, 0, 39, 0.829);
+
+}
+
+
+/* CONTAINER + CONTENT */
+#container_app{
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+#content_app{
+    width: 70%;
+    padding: 5%;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 600px){
+    #content_app{
+        width:90%;
+    } 
+}
+@media only screen and (min-width: 600px) {
+    #content_app{
+        width:90%;
+    } 
+}
+
+@media only screen and (min-width: 768px) {
+    #content_app{
+        width:90%;
+    } 
+     
+}
+
+#area_crypt{
+    padding: 3%;
+    background-color: #f4ecfc;
+    -webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
+}
+
+#areas_container{
+    border: 1px solid black;
+    padding: 3%;
+    background-color: #5d7aa3;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#areas_container .area{
+    width: 42%;
+    padding: 3%;
+    word-wrap: break-word;
+}
+
+@media only screen and (max-width: 600px){
+    #areas_container .area{
+        margin-bottom: 5%;
+        width: 97%;
+        padding: 3%;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    #areas_container .area{
+        margin-bottom: 5%;
+        width: 97%;
+        padding: 3%;
+       
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    #areas_container .area{
+        margin-bottom: 5%;
+        width: 43%;
+        padding: 3%;
+    } 
+}
+
+
+.header{
+    border: 1px solid black;
+    background-color: #183153;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 5%;
+    word-wrap: break-word; 
+}
+
+.font_header{
+    font-family: EntezareZohoor2;
+    font-size: 1.5em;
+    color:rgb(221, 208, 233);;
+}
+
+
+
+
+/* TEXTAREA */
+#textarea{
+    border: 1px solid black;
+    padding: 3%;
+    height: 250px;
+    width: 93.3%;
+    resize: none;
+    font-size: 2em;
+}
+
+#textarea:focus, input:focus, input[type]:focus {
+    border-color: rgba(255, 145, 0, 0);
+    box-shadow: 0 1px 1px rgba(229, 102, 23, 0);
+    outline: 0 none;
+    border: 1px solid black;
+}
+
+
+/* RESULT */
+#result_content{
+    display: none;
+    margin-top: 10%;
+    background-color: white;
+    border: 1px solid black;
+    padding: 2%;
+    height: 200px;  
+    box-shadow: -3px 3px 30px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -3px 3px 30px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: -3px 3px 30px 0px rgba(0,0,0,0.75);
+}
+
+#result_encrypt{
+    padding: 2%;
+    font-size: 1.5em;
+}
+
+
+/* BUTTONS */
+.container_btns{
+    margin-top: 3%;
+    text-align: right;
+}
+
+.button{
+    cursor: pointer;
+    border: 1px solid black;
+    padding: 3%;
+    box-shadow: 1px 4px 5px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 1px 4px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 4px 5px 0px rgba(0,0,0,0.75);
+}
+
+.btn-clear{
+    background-color: rgb(182, 26, 26);
+}
+.btn-clear:hover{
+    background-color: rgb(116, 17, 17);
+}
+
+.btn-encrypt{
+    background-color: rgb(230, 84, 0);
+}
+.btn-encrypt:hover{
+    background-color: rgb(189, 69, 0);
+}
+
+
+.btn-desencrypt{
+    display: none;
+    background-color: rgb(223, 148, 105);
+}
+.btn-desencrypt:hover{
+    background-color: rgb(165, 96, 56);
+}
+
+.btn-copy{
+    display: none;
+    background-color: rgb(26, 182, 73);
+}
+.btn-copy:hover{
+    background-color: rgb(15, 109, 43);
+}
+
+@media only screen and (max-width: 600px) {
+    .button{
+        margin-bottom: 3%;
+        width: 100%;
+    }
+}
+@media only screen and (min-width: 600px) {
+    .button{
+        margin-bottom: 3%;
+        width: 100%;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .button{
+        width: 25%;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .button{
+        width: 25%;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .button{
+        width: 25%;
+    }
+}
+
+/* MESSAGES */
+.alert_copy{
+    margin-top: 5%;
+    background-color: rgb(36, 75, 107);
+    border: 2px solid rgb(29, 64, 92);
+    color: #8194ff;
+    padding: 3%;
+    display: none;
+    font-size: 1.5em;
+    text-align: center;
+    animation: myAnim 1s ease 0s 1 normal forwards;
+}
+
+@keyframes myAnim {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.2;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.alert-error{
+    margin-top: 5%;
+    background-color: rgb(192, 0, 0);
+    border: 2px solid rgb(109, 0, 0);
+    color: #ff9481;
+    padding: 3%;
+    display: none;
+    font-size: 1.5em;
+    text-align: center;
+    animation: myAnim 1s ease 0s 1 normal forwards;
+}
+
+@keyframes myAnim {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.2;
+	}
+	100% {
+		opacity: 1;
+	}
+}

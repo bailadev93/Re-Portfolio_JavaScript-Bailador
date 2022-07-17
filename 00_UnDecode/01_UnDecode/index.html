@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UnDeCODE</title>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="./src/css/app.css">
+
+</head>
+
+<body id="app" onresize="changeResizeScreen()">
+
+    <div id="container_app">
+
+        <!--FOOTER TOP-->
+        <div id="footer_top">
+            <span>
+                RE-Portfolio - JavaScript | &copy;Gastón E. Bailador (2022) <br> <span style="color:rgb(255, 204, 36);">Usaged
+                    in this development HTML, CSS & JS </span>
+            </span>
+        </div>
+
+        <!-- HEADER APP -->
+        <div class="header_app">
+
+            <div id="header_app_logo">
+                <h1 id="title_headerAPP">
+                    <span class="spanH1a">UnDe</span><span class="spanH1b">code</span>
+                </h1>
+            </div>
+
+            <div id="header_app_social">
+
+                <span class="header_app_icon_social" style="margin-right: 1%;">
+                    <a href="https://www.linkedin.com/in/gastonebailador/" target="__blank">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                </span>
+
+                <span class="header_app_icon_social">
+                    <a href="https://github.com/bailadev93" target="__blank">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div id="content_app">
+
+            <!-- Encrypt/Desencrypt-->
+            <div id="uncode"></div>
+            <div id="area_crypt">
+
+                <div class="header">
+                    <span class="font_header">
+                        <span>
+                            UnDecode
+                        </span>
+                    </span>
+                </div>
+
+                <div id="areas_container">
+
+                    <div class="area" id="area1">
+
+                        <div class="header" id="gaston">
+                            <span id="header_title1" style="font-size: 1.5em;">Encrypt</span>
+                        </div>
+
+                        <form id="container_textarea">
+
+                            <textarea class="input_textarea" id="textarea"
+                                placeholder="Enter text to uncode..."></textarea>
+                            <!--input hidden-->
+                            <input id="hash_input" type="text" style="visibility:hidden;" />
+
+                            <div id="result_error1" class="alert-error"></div>
+
+                            <div class="container_btns">
+
+                                <button title="Clean" id="clear_btn" class="button btn-clear" type="reset">
+                                    <i style="color:white; font-size: 1.3em;" class="fa-solid fa-trash"></i>
+                                </button>
+
+                                <button title="Encrypt" onclick="btnEncrypt()" class="button btn-encrypt" type="button">
+                                    <span id="encrypt_btn"><i style="color:white; font-size: 1.3em;"
+                                            class="fa-solid fa-unlock"></i></span>
+                                </button>
+
+                                <button title="Tutorial" onclick="openModalTuto('uncode')" class="button btn-tuto"
+                                    type="button">
+                                    <span id="encrypt_btn">
+                                        <i style="color:white; font-size: 1.3em;"
+                                            class="fa-solid fa-circle-question"></i>
+                                    </span>
+                                </button>
+
+                            </div>
+                        </form>
+                    </div>
+
+
+                    <div class="area">
+
+                        <div id="nothing_visible1" class="content_nothing_visible">
+
+                            <p class="nothing">Nothing yet</p>
+
+                            <div>
+                                <i class="fa-solid fa-ban"></i>
+                            </div>
+
+                        </div>
+                        <div class="header" id="result_header1">
+                            <span id="header_title1" style="font-size: 1.5em;">Result</span>
+                        </div>
+
+                        <div id="result_error2" class="alert-error"></div>
+                        <div id="result_copy" class="alert_copy"></div>
+
+                        <div id="result_content1">
+                            <div id="result_encrypt1"></div>
+                        </div>
+
+                        <div style="text-align: right;" class="container_btns">
+                            <button title="Copy" id="btn_copy" onclick="copyClipBoard()" class="button btn-copy"
+                                type="reset">
+                                <i style="color:white; font-size: 1.3em;" class="fa-solid fa-clipboard"></i>
+                            </button>
+
+                            <button title="Desencrypt" id="btn_desencrypt" onclick="desencrypt()"
+                                class="button  btn-desencrypt">
+                                <i style="color:white; font-size: 1.3em;" class="fa-solid fa-lock-open"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Only Desencrypter-->
+            <div id="decode"></div>
+            <div id="area_crypt">
+
+                <div class="header">
+                    <span class="font_header">
+                        <span>Decode</span>
+                    </span>
+                </div>
+
+
+                <div id="areas_container">
+                    <div class="area" id="area2">
+                        <div class="header" id="gaston">
+                            <span id="header_title2" style="font-size: 1.5em;">Desencrypt</span>
+                        </div>
+
+                        <form id="container_textarea">
+
+                            <textarea class="input_textarea" id="textarea1"
+                                placeholder="Enter text to decode..."></textarea>
+
+                            <div id="result_error3" class="alert-error"></div>
+
+                            <div class="container_btns">
+
+                                <button title="Clean" id="clear_btn1" class="button btn-clear" type="reset">
+                                    <i style="color:white; font-size: 1.3em;" class="fa-solid fa-trash"></i>
+                                </button>
+
+                                <button title="Encrypt" onclick="btnDesencrypt()" class="button btn-encrypt"
+                                    type="button">
+                                    <span id="encrypt_btn"><i style="color:white; font-size: 1.3em;"
+                                            class="fa-solid fa-lock-open"></i></span>
+                                </button>
+
+
+                                <button title="Tutorial" onclick="openModalTuto('decode')" class="button btn-tuto"
+                                    type="button">
+                                    <span id="encrypt_btn">
+                                        <i style="color:white; font-size: 1.3em;"
+                                            class="fa-solid fa-circle-question"></i>
+                                    </span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="area">
+
+                        <div id="nothing_visible2" class="content_nothing_visible">
+
+                            <p class="nothing">Nothing yet</p>
+
+                            <div>
+                                <i class="fa-solid fa-ban"></i>
+
+                            </div>
+
+                        </div>
+
+                        <div class="header" id="result_header2">
+                            <span id="header_title2" style="font-size: 1.5em;">Result</span>
+                        </div>
+
+                        <div id="result_error4" class="alert-error"></div>
+
+                        <div id="result_content2">
+                            <div id="result_encrypt2"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!--MODAL-->
+    <div id="my_modal" class="modal_tuto">
+
+        <div class="modal_content">
+
+            <div id="modal_close" class="modal_exit" onclick="closeModalTuto('uncode')"><i
+                    class="fa-solid fa-square-xmark"></i></div>
+
+            <div style="margin-top: 10%" id="inner_content_modal">
+
+                <h1 id="inner_title" class="title_modal"></h1>
+
+                <div>
+                    <p id="inner_content" class="content_modal"></p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Scripts -->
+    <script src="./src/js/app.js"></script>
+    <script src="./src/js/validations.js"></script>
+    <script src="./src/js/uncode-decode.js"></script>
+    <script src="./src/js/only-decode.js"></script>
+    <script src="./src/js/tuto-modal.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptZone</title>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="./src/css/app.css">
+    <script src="./src/js/app.js"></script>
+
+
+</head>
+<body>
+
+
+
+    <div id="container_app">
+
+        <div id="content_app">
+
+            <div id="area_crypt">
+
+                <div class="header">
+                    <span class="font_header"><i class="fas fa-user-secret"></i> CryptZone</span>
+                </div>
+        
+        
+                <div id="areas_container">
+        
+                    <div class="area">
+        
+                        <div class="header" id="gaston">
+                            <span id="header_title" style="font-size: 1.5em;">Encrypt</span>
+                        </div>
+        
+
+        
+                        <form id="container_textarea">
+
+                            <textarea  id="textarea"></textarea>
+        
+                            <div class="container_btns">
+
+                                <button  title="Clean" id="clear_btn" class="button btn-clear" type="reset">
+                                    <i style="color:white; font-size: 1.3em;" class="fa-solid fa-trash"></i>
+                                </button>
+
+                                <button  title="Encrypt" onclick="encryptEntry()" class="button btn-encrypt" type="button">
+                                    <span id="encrypt_btn"><i style="color:white; font-size: 1.3em;" class="fa-solid fa-unlock"></i></span>
+                                </button>
+
+                            </div>
+
+                        </form>
+                        
+                    </div>
+        
+        
+                    <div class="area">
+        
+                        <div class="header">
+                            Result 
+                        </div>
+
+
+                        <div id="result_error" class="alert-error"></div>
+                        <div id="result_copy" class="alert_copy"></div>
+
+                        <div id="result_content">
+                            <div id="result_encrypt"></div>
+                        </div>
+
+
+                        <div  style="text-align: right;" class="container_btns">
+                            <button  title="Copy" id="btn_copy" onclick="copyClipBoard()" class="button btn-copy" type="reset">
+                                <i style="color:white; font-size: 1.3em;" class="fa-solid fa-clipboard"></i>
+                            </button>
+
+                            <button title="Desencrypt" id="btn_desencrypt" onclick="desencrypt()" class="button  btn-desencrypt">
+                                <i style="color:white; font-size: 1.3em;" class="fa-solid fa-lock-open"></i>
+                            </button>
+                        </div>
+
+                    </div>
+        
+                </div>
+
+            </div>
+
+            
+    
+        </div>
+
+       
+
+    </div>
+    
+</body>
+</html>
